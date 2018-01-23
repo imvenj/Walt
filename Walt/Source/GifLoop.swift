@@ -17,7 +17,7 @@ public protocol DictionaryConvertible {
 
 public enum GifLoop: DictionaryConvertible {
   case absolute(Int)
-  static var infinite = GifLoop.absolute(0) // 0 = infinite loop for kCGImagePropertyGIFLoopCount
+  public static var infinite = GifLoop.absolute(0) // 0 = infinite loop for kCGImagePropertyGIFLoopCount
   
   public typealias Key = String
   public typealias Value = Int

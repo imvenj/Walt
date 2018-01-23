@@ -55,7 +55,7 @@ public enum Walt {
       }
     }
     
-    let assetWriter = try AVAssetWriter(url: url, fileType: AVFileTypeQuickTimeMovie)
+    let assetWriter = try AVAssetWriter(url: url, fileType: AVFileType.mov)
     
     let frameSize = images[0].pixelBufferSize
     let iterations = Int(ceil(Double(options.duration)/options.loopDuration))
@@ -76,7 +76,7 @@ public enum Walt {
                                                                             AVVideoAverageBitRateKey: Walt.k2500kbps,
                                                                             AVVideoExpectedSourceFrameRateKey: fps]]
     
-    let assetWriterInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: outputSettings)
+    let assetWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: outputSettings)
     assetWriterInput.expectsMediaDataInRealTime = true
     
     let attributes: [String : Any] = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32ARGB),
@@ -93,7 +93,8 @@ public enum Walt {
     
     var pxBufferIndex = 0
     
-    assetWriterInput.requestMediaDataWhenReady(on: Walt.kVideoQueue) {
+    assetWriterInput.requestMediaDataWhenReady(on: Walt.kVideoQueue) { [weak assetWriter] in
+      guard let assetWriter = assetWriter else { return }
       
       while assetWriterInput.isReadyForMoreMediaData {
         
@@ -106,9 +107,11 @@ public enum Walt {
         if pxBufferIndex == finalVideoArray.count {
           assetWriterInput.markAsFinished()
           assetWriter.finishWriting {
-            DispatchQueue.main.async {
-              let data = try? Data(contentsOf: url)
-              completion(url, data)
+            if assetWriter.status == .completed {
+              DispatchQueue.main.async {
+                  let data = try? Data(contentsOf: url)
+                  completion(url, data)
+              }
             }
           }
         }
