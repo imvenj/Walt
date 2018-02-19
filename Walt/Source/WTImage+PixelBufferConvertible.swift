@@ -6,17 +6,41 @@
 //
 //
 
+#if os(macOS)
+import AppKit
+public typealias WTColor = NSColor
+#else
 import UIKit
+public typealias WTColor = UIColor
+#endif
 import AVFoundation
+
+#if os(macOS)
+extension NSImage {
+  var realSize: CGSize {
+    let cgImage = self.cgImage!
+    return CGSize(width: cgImage.width, height: cgImage.height)
+  }
+
+  var cgImage: CGImage? {
+    return cgImage(forProposedRect: nil, context: nil, hints: nil)
+  }
+}
+#endif
 
 public protocol PixelBufferConvertible {
   var pixelBufferSize: CGSize { get }
   func toPixelBuffer() -> CVPixelBuffer?
 }
 
-extension UIImage: PixelBufferConvertible {
+extension WTImage: PixelBufferConvertible {
   
   public var pixelBufferSize: CGSize {
+    #if os(macOS)
+    let size = self.realSize
+    #else
+    let size = self.size
+    #endif
     if size.width > 1280 || size.height > 1280 {
       let maxRect = (size.width > size.height) ? CGRect(x: 0, y: 0, width: 720, height: 1280) : CGRect(x: 0, y: 0, width: 1280, height: 720)
       let aspectRect = AVMakeRect(aspectRatio: size, insideRect: maxRect)
@@ -69,7 +93,7 @@ extension UIImage: PixelBufferConvertible {
     
     let rect = CGRect(origin: .zero, size: bufferSize)
     
-    context.setFillColor(UIColor.white.cgColor)
+    context.setFillColor(WTColor.white.cgColor)
     context.fill(rect)
     context.interpolationQuality = .high
     

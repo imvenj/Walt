@@ -5,11 +5,15 @@
 //  Created by Gonzalo Nunez on 10/3/16.
 //
 //
-
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+import MobileCoreServices
+#endif
 import AVFoundation
 
 import ImageIO
-import MobileCoreServices
 
 public typealias DataCompletionBlock = (URL, Data?) -> Void
 
@@ -26,7 +30,7 @@ public enum Walt {
   fileprivate static let k2500kbps = 2500 * 1000
   fileprivate static let kVideoQueue = DispatchQueue(label: "com.ZenunSoftware.Walt.VideoQueue")
   
-  public static func writeMovie(with images: [UIImage],
+  public static func writeMovie(with images: [WTImage],
                                 options: MovieWritingOptions,
                                 completion: @escaping DataCompletionBlock) throws
   {
@@ -34,7 +38,7 @@ public enum Walt {
     return try writeMovie(with: images, options: options, url: url, completion: completion)
   }
   
-  public static func writeMovie(with images: [UIImage],
+  public static func writeMovie(with images: [WTImage],
                                 options: MovieWritingOptions,
                                 url: URL,
                                 completion: @escaping DataCompletionBlock) throws
@@ -61,7 +65,7 @@ public enum Walt {
     let iterations = Int(ceil(Double(options.duration)/options.loopDuration))
     let fps = Int(ceil(Double(images.count)/options.loopDuration))
     
-    var finalVideoArray = [UIImage]()
+    var finalVideoArray = [WTImage]()
     for _ in 0..<iterations {
       for image in images {
         finalVideoArray.append(image)
@@ -123,7 +127,7 @@ public enum Walt {
   
   //MARK: Gifs
   
-  public static func createGif(with images: [UIImage],
+  public static func createGif(with images: [WTImage],
                                options: GifWritingOptions,
                                completion: @escaping DataCompletionBlock) throws
   {
@@ -132,7 +136,7 @@ public enum Walt {
   }
 
   
-  public static func createGif(with images: [UIImage],
+  public static func createGif(with images: [WTImage],
                                options: GifWritingOptions,
                                url: URL,
                                completion: @escaping DataCompletionBlock) throws
@@ -176,26 +180,45 @@ public enum Walt {
       let scaledSize = first.size.scaled(by: options.scale)
       
       for image in images {
+        #if os(macOS)
+        let result = NSImage(size: scaledSize)
+        result.lockFocus()
+        let rect = CGRect(origin: .zero, size: scaledSize)
+        image.draw(in: rect)
+        result.unlockFocus()
+        guard let cgImage = result.cgImage else {
+          if options.skipsFailedImages {
+            continue
+          }
+
+          DispatchQueue.main.async {
+            completion(url, nil)
+          }
+
+          return
+        }
+        #else
         UIGraphicsBeginImageContext(scaledSize)
-        
+
         defer {
           UIGraphicsEndImageContext()
         }
-        
+
         let rect = CGRect(origin: .zero, size: scaledSize)
         image.draw(in: rect)
-        
+
         guard let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
           if options.skipsFailedImages {
             continue
           }
-          
+
           DispatchQueue.main.async {
             completion(url, nil)
           }
-          
+
           return
         }
+        #endif
         
         CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
       }

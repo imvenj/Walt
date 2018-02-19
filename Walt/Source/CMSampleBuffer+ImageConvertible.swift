@@ -6,16 +6,23 @@
 //
 //
 
+
+#if os(macOS)
+import AppKit
+public typealias WTImage = NSImage
+#else
 import UIKit
+public typealias WTImage = UIImage
+#endif
 import CoreMedia
 
 public protocol ImageConvertible {
-  func toImage() -> UIImage?
+  func toImage() -> WTImage?
 }
 
 extension CMSampleBuffer: ImageConvertible {
   
-  public func toImage() -> UIImage? {
+  public func toImage() -> WTImage? {
     
     guard let imageBuffer = CMSampleBufferGetImageBuffer(self) else {
       return nil
@@ -43,8 +50,12 @@ extension CMSampleBuffer: ImageConvertible {
     }
     
     CVPixelBufferUnlockBaseAddress(imageBuffer, [])
-    
+
+    #if os(macOS)
+    return NSImage(cgImage: cgImage, size: CGSize.init(width: width, height: height))
+    #else
     return UIImage(cgImage: cgImage)
+    #endif
   }
   
 }

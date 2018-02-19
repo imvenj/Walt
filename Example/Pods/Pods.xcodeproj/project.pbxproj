@@ -10,6 +10,8 @@
 		0D50790B0D76F35409E2D7213FA456DF /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F2BBA42AF7A264624C9050A3BDBD0 /* Options.swift */; };
 		22EDCB9210BF08C3C79F3CDECDBCBA8A /* Roundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF0FA72F0DBCF1C582881D229D024B7 /* Roundable.swift */; };
 		23396E9E88B4B044F009F3D9B2CEA870 /* CGSize+Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607747AF8E44F19D840DFC63BBF688A /* CGSize+Scalable.swift */; };
+		25AEBF8C203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBF8B203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift */; };
+		25AEBF8D203AC2BA002C3A83 /* WTImage+PixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBF8B203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift */; };
 		328B6F906CFC1BBD327C1F62DD5209A5 /* GifLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E640F27EA0C62506F3B28FF740833DB /* GifLoop.swift */; };
 		3903418E4B6558D3CE92CA0375264963 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC0C3ECDEB48C0D8F3548B1E40260FD /* Foundation.framework */; };
 		4FB62DD5ECBF9EAE27B2E8816864BDF0 /* Pods-Walt-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0049D08AA199CD91F7E978590A12D1 /* Pods-Walt-Example-dummy.m */; };
@@ -25,7 +27,6 @@
 		C1CE7287930E6A26377D7943DC1EEF2E /* Walt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE9200728FBA44ED793ADFAD7BC67AA5 /* Walt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA6325BAB60F3974D94161FDFA063216 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422707CA61245020BFADB1DF611E35EA /* CoreGraphics.framework */; };
 		D4341867E4823D67C6FCF52F6C6E4CC2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747F8D88B79EFDDE5DC46C150C165A52 /* AVFoundation.framework */; };
-		DBD57486DF674325E40C5EA11451399F /* UIImage+PixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E95F4ECF2278205D648C91E71F428 /* UIImage+PixelBufferConvertible.swift */; };
 		E2FAED2F6D14374983D04E79AF428859 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A55C58A1961DE3E0109AA53C937A6E /* ImageIO.framework */; };
 		EDA158ADA6BC7784F8B49EE69A708036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC0C3ECDEB48C0D8F3548B1E40260FD /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -42,11 +43,11 @@
 
 /* Begin PBXFileReference section */
 		022F2BBA42AF7A264624C9050A3BDBD0 /* Options.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		0A4E95F4ECF2278205D648C91E71F428 /* UIImage+PixelBufferConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+PixelBufferConvertible.swift"; sourceTree = "<group>"; };
 		1039C3AB7317FFAED3DCFDEAC4AE3016 /* Pods-Walt-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Walt-Example.release.xcconfig"; sourceTree = "<group>"; };
 		14952730857C36B7C2C9043AF5709381 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		1CA3C86E4F7B7D3FDDDADE2F6E84321C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		1E640F27EA0C62506F3B28FF740833DB /* GifLoop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GifLoop.swift; sourceTree = "<group>"; };
+		25AEBF8B203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WTImage+PixelBufferConvertible.swift"; sourceTree = "<group>"; };
 		290AB3B3D32875A1D1DEFC3B2CF7EDE2 /* Pods-Walt-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Walt-Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2C13D6881CB0910019955199A6283FED /* Pods-Walt-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Walt-Example-resources.sh"; sourceTree = "<group>"; };
 		36CA6BA6814992EBCCA28DDD9E618910 /* Walt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Walt-dummy.m"; sourceTree = "<group>"; };
@@ -128,11 +129,11 @@
 			isa = PBXGroup;
 			children = (
 				D607747AF8E44F19D840DFC63BBF688A /* CGSize+Scalable.swift */,
-				704BAE1BC7B449D52273ADEC9D3F6D98 /* CMSampleBuffer+ImageConvertible.swift */,
 				1E640F27EA0C62506F3B28FF740833DB /* GifLoop.swift */,
 				022F2BBA42AF7A264624C9050A3BDBD0 /* Options.swift */,
 				9BF0FA72F0DBCF1C582881D229D024B7 /* Roundable.swift */,
-				0A4E95F4ECF2278205D648C91E71F428 /* UIImage+PixelBufferConvertible.swift */,
+				704BAE1BC7B449D52273ADEC9D3F6D98 /* CMSampleBuffer+ImageConvertible.swift */,
+				25AEBF8B203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift */,
 				40D5C4A3F282EA8E6FED942A9E57C315 /* Walt.swift */,
 			);
 			path = Source;
@@ -323,6 +324,9 @@
 					69BDBE729B6991FC340835EFDF84E45D = {
 						LastSwiftMigration = 0920;
 					};
+					76081467A9EC11E3BC1C6AA66C5BCD1F = {
+						LastSwiftMigration = 0920;
+					};
 				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -360,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB62DD5ECBF9EAE27B2E8816864BDF0 /* Pods-Walt-Example-dummy.m in Sources */,
+				25AEBF8C203AC250002C3A83 /* WTImage+PixelBufferConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +372,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AEBF8D203AC2BA002C3A83 /* WTImage+PixelBufferConvertible.swift in Sources */,
 				23396E9E88B4B044F009F3D9B2CEA870 /* CGSize+Scalable.swift in Sources */,
 				824D101F2E350099476D002C83B31FF1 /* CMSampleBuffer+ImageConvertible.swift in Sources */,
 				328B6F906CFC1BBD327C1F62DD5209A5 /* GifLoop.swift in Sources */,
 				0D50790B0D76F35409E2D7213FA456DF /* Options.swift in Sources */,
 				22EDCB9210BF08C3C79F3CDECDBCBA8A /* Roundable.swift in Sources */,
-				DBD57486DF674325E40C5EA11451399F /* UIImage+PixelBufferConvertible.swift in Sources */,
 				77F35091739F490292ADC4B64519CA28 /* Walt-dummy.m in Sources */,
 				66B5F86515FD9E544F8798F557D71828 /* Walt.swift in Sources */,
 			);
@@ -565,6 +570,7 @@
 			baseConfigurationReference = 1039C3AB7317FFAED3DCFDEAC4AE3016 /* Pods-Walt-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -590,6 +596,7 @@
 				PRODUCT_NAME = Pods_Walt_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -601,6 +608,7 @@
 			baseConfigurationReference = 65C76D34688532A213275EE8605610AC /* Pods-Walt-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -627,6 +635,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
