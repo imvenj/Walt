@@ -41,8 +41,8 @@ extension WTImage: PixelBufferConvertible {
     #else
     let size = self.size
     #endif
-    if size.width > 1280 || size.height > 1280 {
-      let maxRect = (size.width > size.height) ? CGRect(x: 0, y: 0, width: 1280, height: 720) : CGRect(x: 0, y: 0, width: 720, height: 1280)
+    if size.width > 1920 || size.height > 1920 {
+      let maxRect = (size.width > size.height) ? CGRect(x: 0, y: 0, width: 1920, height: 1080) : CGRect(x: 0, y: 0, width: 1080, height: 1920)
       let aspectRect = AVMakeRect(aspectRatio: size, insideRect: maxRect)
       return aspectRect.size.rounded(to: 16)
     } else {
