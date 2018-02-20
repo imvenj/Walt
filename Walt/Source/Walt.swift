@@ -67,9 +67,7 @@ public enum Walt {
     
     var finalVideoArray = [WTImage]()
     for _ in 0..<iterations {
-      for image in images {
-        finalVideoArray.append(image)
-      }
+      finalVideoArray.append(contentsOf: images)
     }
     
     let outputSettings: [String : Any] = [AVVideoCodecKey: AVVideoCodecH264,
