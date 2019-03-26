@@ -91,7 +91,7 @@ public enum Walt {
     
     assetWriter.add(assetWriterInput)
     assetWriter.startWriting()
-    assetWriter.startSession(atSourceTime: kCMTimeZero)
+    assetWriter.startSession(atSourceTime: CMTime.zero)
     
     var pxBufferIndex = 0
     

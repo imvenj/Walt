@@ -60,7 +60,7 @@ extension WTImage: PixelBufferConvertible {
     let pxBufferPtr = UnsafeMutablePointer<CVPixelBuffer?>.allocate(capacity: 1)
     
     defer {
-      pxBufferPtr.deinitialize()
+      pxBufferPtr.deinitialize(count: 1)
     }
     
     CVPixelBufferCreate(
