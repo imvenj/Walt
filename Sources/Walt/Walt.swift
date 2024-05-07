@@ -70,7 +70,7 @@ public enum Walt {
       finalVideoArray.append(contentsOf: images)
     }
     
-    let outputSettings: [String : Any] = [AVVideoCodecKey: AVVideoCodecH264,
+      let outputSettings: [String : Any] = [AVVideoCodecKey: AVVideoCodecType.h264,
                                           AVVideoWidthKey: frameSize.width,
                                           AVVideoHeightKey: frameSize.height,
                                           AVVideoScalingModeKey: AVVideoScalingModeResizeAspect,

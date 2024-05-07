@@ -1,5 +1,0 @@
-use_frameworks!
-
-target 'Walt-Example' do
-  pod 'Walt', :path => '../'
-end
